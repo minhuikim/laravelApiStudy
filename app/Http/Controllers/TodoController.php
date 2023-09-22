@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 use App\Models\Todo;
 use App\Http\Resources\TodoResource;
+use App\Http\Requests\TodoRequest;
 
 class TodoController extends Controller
 {
@@ -43,7 +44,9 @@ class TodoController extends Controller
      * Store a newly created resource in storage.
      */
     // 새 데이터 추가
-    public function store(Request $request)
+    // public function store(Request $request)
+    // TodoRequest에 적용된 요청사항을 불러온다.
+    public function store(TodoRequest $request)
     {
         $userInputData = $request->all();
 
@@ -89,7 +92,8 @@ class TodoController extends Controller
      */
     // 기존 데이터를 수정하여 json형태로 반환 
     // public function update(Request $request, string $id)
-    public function update(Request $request, Todo $todo)
+    // public function update(Request $request, Todo $todo)
+    public function update(TodoRequest $request, Todo $todo)
     {
         //
         // $fetchedTodo = Todo::find($id);
